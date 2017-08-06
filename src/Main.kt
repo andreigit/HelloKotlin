@@ -34,16 +34,12 @@ class FileHelper {
 //        }
 
         // this code reads all lines one by one
-        val fileReader = FileReader(file)
-        val bufferedReader = BufferedReader(fileReader)
-        try {
-            for (line in bufferedReader.lines()) {
-                println(line)
+        FileReader(file).use {
+            BufferedReader(it).use {
+                for (line in it.lines()) {
+                    println(line)
+                }
             }
-        }
-        finally {
-            bufferedReader.close()
-            fileReader.close()
         }
     }
 }
