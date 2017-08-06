@@ -8,12 +8,7 @@ fun main(args: Array<String>) {
     println("Hello, Kotlin!")
 
     println("Input text file name:")
-
-    var filePath: String?
-    do {
-       filePath = readLine()
-    } while (filePath == null)
-
+    val filePath = readLineHelper()
     val file = File(filePath)
     val fileHelper = FileHelper()
 
@@ -26,7 +21,15 @@ fun main(args: Array<String>) {
     }
 }
 
-class FileHelper {
+private fun readLineHelper(): String {
+    var line: String?
+    do {
+        line = readLine()
+    } while (line == null)
+    return line
+}
+
+private class FileHelper {
     fun processFile(file: File/*, charset: Charset = Charsets.UTF_8*/) {
         // this code reads all lines at once
 //        for (line in file.readLines(charset)) {
