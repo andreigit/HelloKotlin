@@ -7,28 +7,20 @@ fun main(args: Array<String>) {
 
     println("Input text file name:")
 
-    var filePath: String? = null
+    var filePath: String?
+    do {
+       filePath = readLine()
+    } while (filePath == null)
 
-    while (filePath == null) {
-        filePath = readLine()
-    }
-
-    val file: File;
-    try {
-        file = File(filePath)
-    }
-    catch (ex: Exception){
-        println("Error occurs during file opening: ${ex.message}")
-        exitProcess(1)
-    }
+    val file = File(filePath)
 
     try {
         val fileHelper = FileHelper()
         fileHelper.processFile(file)
     }
-    catch (ex: Exception){
+    catch (ex: Exception) {
         println("Error occurs during file processing: ${ex.message}")
-        exitProcess(2)
+        exitProcess(1)
     }
 
     exitProcess(0)
