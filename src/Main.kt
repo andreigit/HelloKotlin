@@ -24,8 +24,6 @@ fun main(args: Array<String>) {
         println("Error occurs during file processing: ${ex.message}")
         exitProcess(1)
     }
-
-    exitProcess(0)
 }
 
 class FileHelper {
