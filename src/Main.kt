@@ -1,4 +1,7 @@
+import java.io.BufferedInputStream
+import java.io.BufferedReader
 import java.io.File
+import java.io.FileReader
 import java.nio.charset.Charset
 import kotlin.system.exitProcess
 
@@ -27,9 +30,23 @@ fun main(args: Array<String>) {
 }
 
 class FileHelper {
-    fun processFile(file: File, charset: Charset = Charsets.UTF_8) {
-        for (line in file.readLines(charset)) {
-            println(line)
+    fun processFile(file: File/*, charset: Charset = Charsets.UTF_8*/) {
+        // this code reads all lines at once
+//        for (line in file.readLines(charset)) {
+//            println(line)
+//        }
+
+        // this code reads all lines one by one
+        val fileReader = FileReader(file)
+        val bufferedReader = BufferedReader(fileReader)
+        try {
+            for (line in bufferedReader.lines()) {
+                println(line)
+            }
+        }
+        finally {
+            bufferedReader.close()
+            fileReader.close()
         }
     }
 }
