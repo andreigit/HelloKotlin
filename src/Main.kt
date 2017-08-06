@@ -13,9 +13,9 @@ fun main(args: Array<String>) {
     } while (filePath == null)
 
     val file = File(filePath)
+    val fileHelper = FileHelper()
 
     try {
-        val fileHelper = FileHelper()
         fileHelper.processFile(file)
     }
     catch (ex: Exception) {
