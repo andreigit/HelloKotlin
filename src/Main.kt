@@ -25,7 +25,7 @@ private fun readLineHelper(): String {
     var line: String?
     do {
         line = readLine()
-    } while (line == null || line.isNullOrBlank())
+    } while (line == null || line.isBlank())
     return line
 }
 
