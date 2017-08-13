@@ -22,10 +22,10 @@ fun main(args: Array<String>) {
 }
 
 private fun readLineHelper(): String {
-    var line: String?
+    var line: String
     do {
-        line = readLine()
-    } while (line == null || line.isBlank())
+        line = readLine().orEmpty()
+    } while (line.isBlank())
     return line
 }
 
