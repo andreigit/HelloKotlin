@@ -26,7 +26,7 @@ private fun readLineHelper(): String {
     do {
         line = readLine().orEmpty()
     } while (line.isBlank())
-    return line
+    return line.trim()
 }
 
 private class FileHelper {
