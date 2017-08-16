@@ -22,11 +22,11 @@ fun main(args: Array<String>) {
 }
 
 private fun readLineHelper(): String {
-    var line: String
     do {
-        line = readLine().orEmpty()
-    } while (line.isBlank())
-    return line.trim()
+        val line = readLine().orEmpty()
+        if (line.isNotBlank())
+            return line.trim()
+    } while (true)
 }
 
 private class FileHelper {
